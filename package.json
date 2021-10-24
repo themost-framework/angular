@@ -1,7 +1,7 @@
 {
   "name": "@themost/angular",
   "version": "6.5.2",
-  "description": "MOST Web Framework 2.0 - Angular 2.x-6.x Client",
+  "description": "MOST Web Framework client module for angular",
   "main": "./bundles/themost-angular.umd.js",
   "peerDependencies": {
     "@themost/client":"^2.5.1",
