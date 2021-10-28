@@ -4,6 +4,14 @@ import { AngularDataContext } from '../client';
 import { Subscription } from 'rxjs';
 import { ActivatedUserService } from './activated-user.service';
 
+class User {
+  public static me(): any {
+    return {
+      $name: 'me()'
+    };
+  }
+ }
+
 @Component({
   selector: 'app-callback',
   template: `
@@ -28,7 +36,8 @@ export class CallbackComponent implements OnInit, OnDestroy {
       if (queryParams.access_token) {
         this.context.setBearerAuthorization(queryParams.access_token);
       }
-      this.context.model('Users/Me').asQueryable().expand('groups').getItem().then((user) => {
+      // use global filter for Users model ?$filter=id eq me()
+      this.context.model('Users').asQueryable().where('id').equal(User.me()).expand('groups').getItem().then((user) => {
         const authorizedUser = Object.assign(user, {
           token: {
             access_token: queryParams.access_token
