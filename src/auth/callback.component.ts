@@ -36,7 +36,7 @@ export class CallbackComponent implements OnInit, OnDestroy {
         });
         this.activatedUser.set(authorizedUser);
         this.activatedUser.user.next(authorizedUser);
-        return this.router.navigate([ "/" ]);
+        return this.router.navigate([ '/' ]);
       });
     });
   }

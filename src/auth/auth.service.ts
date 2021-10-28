@@ -2,16 +2,8 @@ import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { ActivatedUserService } from './activated-user.service';
 import { Router } from '@angular/router';
 import { AngularDataContext } from '../client';
+import { AuthConfiguration, AUTH_CONFIG } from './auth.interfaces';
 
-export interface AuthConfiguration {
-  login: string;
-  logout?: string;
-  client_id: string;
-  scope: string[];
-  callback: string;
-}
-
-export const AUTH_CONFIG = new InjectionToken<AuthConfiguration>('auth.config');
 @Injectable()
 export class AuthService {
 

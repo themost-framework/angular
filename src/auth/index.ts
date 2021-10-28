@@ -1,4 +1,5 @@
 // MOST Web Framework Copyright (c) 2017-2201, THEMOST LP All rights reserved
+export * from './auth.interfaces';
 export * from './activated-user.service';
 export * from './auth.service';
 export * from './auth.guard';

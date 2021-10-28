@@ -1,7 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from './auth.guard';
-import { AuthConfiguration, AuthService, AUTH_CONFIG } from './auth.service';
+import { AuthService } from './auth.service';
+import { AuthConfiguration, AUTH_CONFIG } from './auth.interfaces';
 import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
 import { CallbackComponent } from './callback.component';
