@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: echo ::set-env name=REPO_NAME::${{ github.event.repository.name }}
       - run: npx @angular/cli@6.2.9 new build --skip-tests --minimal --routing --skip-git
       - run: cd build
       - run: npm run ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
