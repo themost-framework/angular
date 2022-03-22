@@ -26,7 +26,7 @@ export class MostModule {
     constructor() {
         //
     }
-    static forRoot(configuration: ClientDataContextConfig): ModuleWithProviders {
+    static forRoot(configuration: ClientDataContextConfig): ModuleWithProviders<MostModule> {
         return {
             ngModule: MostModule,
             providers: [

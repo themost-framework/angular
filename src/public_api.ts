@@ -9,3 +9,4 @@
 export { AngularDataContext, AngularDataService, ClientDataContextConfig, DATA_CONTEXT_CONFIG } from './client';
 export { DataComponent } from './components';
 export { MostModule } from './module';
+export * from './auth';
