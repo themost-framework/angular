@@ -13,16 +13,25 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npx @angular/cli@6.2.9 new build --skip-tests --minimal --routing --skip-git
-      - run: cd build
-      - run: npm run ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
-      - run: rm -rf projects/angular
-      - run: git clone https://github.com/themost-framework/angular.git projects/angular
-      - run: cd projects/angular
-      - run: npm ci
-      - run: cd ../..
-      - run: npm run ng build angular
-      - run: cd projects/angular/dist
-      - run: npm publish --access=public
+      - name: create angular cli project
+        run: npx @angular/cli@6.2.9 new build --skip-tests --minimal --routing --skip-git
+      - name: create angular library
+        working-directory: build
+        run: npm run ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
+      - name: remove angular library
+        working-directory: build
+        run: rm -rf projects/angular
+      - name: clone repository
+        working-directory: build
+        run: git clone https://github.com/themost-framework/angular.git projects/angular
+      - name: install dependencies
+        working-directory: build/projects/angular
+        run: npm ci
+      - name: build library
+        working-directory: build
+        run: npm run ng build angular
+      - name: publish library
+        working-directory: build/projects/angular/dist
+        run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
