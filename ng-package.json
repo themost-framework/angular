@@ -6,6 +6,8 @@
   },
   "whitelistedNonPeerDependencies": [
     "@types/jasmine",
-    "@types/node"
+    "@types/node",
+    "@themost/client",
+    "@themost/xml"
   ]
 }
