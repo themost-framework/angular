@@ -13,16 +13,15 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm i @angular/cli@6.2.9 -g
-      - run: ng new build --skip-tests --minimal --routing --skip-git
+      - run: npx @angular/cli@6.2.9 new build --skip-tests --minimal --routing --skip-git
       - run: cd build
-      - run: ng generate library angular --create-application=false --skip-git --skip-tests --inline-style
+      - run: npm run ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
       - run: rm -rf projects/angular
       - run: git clone https://github.com/themost-framework/angular.git projects/angular
       - run: cd projects/angular
       - run: npm ci
       - run: cd ../..
-      - run: ng build angular
+      - run: npm run ng build angular
       - run: cd projects/angular/dist
       - run: npm publish --access=public
         env:
