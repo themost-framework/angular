@@ -58,11 +58,11 @@ export class AngularDataService extends ClientDataService {
                 withCredentials: true
             }).subscribe((res) => {
                 if (res.status === 204) {
-                    return resolve();
+                    return resolve(null);
                 } else {
                     // safely handle empty body
                     if ((res.body == null) || (typeof res.body === 'string' && res.body.length === 0)) {
-                        return resolve();
+                        return resolve(null);
                     }
                     return resolve(EdmSchema.loadXML(res.body));
                 }
@@ -119,11 +119,11 @@ export class AngularDataService extends ClientDataService {
                 withCredentials: true
         }).subscribe((res) => {
                 if (res.status === 204) {
-                    return resolve();
+                    return resolve(null);
                 } else {
                     // safely handle empty body
                     if ((res.body == null) || (typeof res.body === 'string' && res.body.length === 0)) {
-                        return resolve();
+                        return resolve(null);
                     }
                     const finalRes = JSON.parse(res.body, reviver);
                     return resolve(finalRes);

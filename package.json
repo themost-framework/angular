@@ -1,17 +1,17 @@
 {
   "name": "@themost/angular",
-  "version": "6.5.3",
+  "version": "11.1.0",
   "description": "MOST Web Framework client module for angular",
   "main": "./bundles/themost-angular.umd.js",
   "peerDependencies": {
-    "@angular/common": "^6",
-    "@angular/core": "^6",
-    "@angular/http": "^6",
-    "@angular/platform-browser": "^6",
-    "@angular/platform-browser-dynamic": "^6",
-    "core-js": "^2 || ^3",
-    "rxjs": "^6 || ^7",
-    "zone.js": "^0.8.26"
+    "@angular/common": "^11",
+    "@angular/core": "^11",
+    "@angular/http": "^11",
+    "@angular/platform-browser": "^11",
+    "@angular/platform-browser-dynamic": "^11",
+    "core-js": "^3",
+    "rxjs": "^6",
+    "zone.js": "^0.11.3"
   },
   "dependencies": {
     "@themost/client": "^2.5.6",
