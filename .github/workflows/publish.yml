@@ -16,7 +16,7 @@ jobs:
       - run: npm i @angular/cli@6.2.9 -g
       - run: ng new build --skip-tests --minimal --routing --skip-git
       - run: cd build
-      - run: ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
+      - run: ng generate library angular --create-application=false --skip-git --skip-tests --inline-style
       - run: rm -rf projects/angular
       - run: git clone https://github.com/themost-framework/angular.git projects/angular
       - run: cd projects/angular
