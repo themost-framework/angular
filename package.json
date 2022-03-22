@@ -4,8 +4,8 @@
   "description": "MOST Web Framework client module for angular",
   "main": "./bundles/themost-angular.umd.js",
   "peerDependencies": {
-    "@themost/xml": "^2.5.1",
-    "@themost/client":"^2.5.1",
+    "@themost/xml": "^2",
+    "@themost/client":"^2",
     "@angular/common": "^6 | ^7 | ^8 | ^9 | ^10 | ^11",
     "@angular/core": "^6 | ^7 | ^8 | ^9 | ^10 | ^11",
     "@angular/http": "^6 | ^7 | ^8 | ^9 | ^10 | ^11",
