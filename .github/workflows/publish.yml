@@ -31,7 +31,7 @@ jobs:
         working-directory: build
         run: npm run ng build angular
       - name: publish library
-        working-directory: build/projects/angular/dist
+        working-directory: build/dist/angular
         run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
