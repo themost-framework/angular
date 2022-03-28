@@ -1,3 +1,10 @@
+[![npm](https://img.shields.io/npm/v/@themost%2Fangular.svg)](https://www.npmjs.com/package/@themost%2Fangular)
+![GitHub top language](https://img.shields.io/github/languages/top/themost-framework/angular)
+[![License](https://img.shields.io/npm/l/@themost/angular)](https://github.com/themost-framework/themost/blob/master/LICENSE)
+![GitHub last commit](https://img.shields.io/github/last-commit/themost-framework/angular)
+![GitHub Release Date](https://img.shields.io/github/release-date/themost-framework/angular)
+[![npm](https://img.shields.io/npm/dw/@themost/angular)](https://www.npmjs.com/package/@themost%2Fangular)
+
 # @themost/angular
 
 ![MOST Web Framework Logo](https://github.com/themost-framework/common/raw/master/docs/img/themost_framework_v3_128.png)
