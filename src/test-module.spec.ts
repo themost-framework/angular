@@ -10,7 +10,7 @@ export class TestConfigurationService {
         return new Promise((resolve) => {
             const dataContextConfig = this._injector.get(DATA_CONTEXT_CONFIG);
             dataContextConfig.base = '/api/';
-            return resolve();
+            return resolve(null);
         });
     }
 }
@@ -25,7 +25,7 @@ export class TestModule {
     constructor() {
         //
     }
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<TestModule> {
         return {
             ngModule: TestModule,
             providers: [
