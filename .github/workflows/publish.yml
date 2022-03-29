@@ -31,6 +31,9 @@ jobs:
       - name: install dependencies
         working-directory: build/projects/angular
         run: npm ci
+      - name: install peer dependencies
+        working-directory: build/projects/angular
+        run: npx @themost/peers
       - name: build library
         working-directory: build
         run: npm run ng build angular
