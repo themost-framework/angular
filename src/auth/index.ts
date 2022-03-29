@@ -1,4 +1,4 @@
-// MOST Web Framework Copyright (c) 2017-2201, THEMOST LP All rights reserved
+// MOST Web Framework Codename Zero Gravity Copyright (c) 2017-2022, THEMOST LP All rights reserved
 export * from './auth.interfaces';
 export * from './activated-user.service';
 export * from './auth.service';

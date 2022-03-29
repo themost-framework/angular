@@ -7,7 +7,6 @@
  * found in the LICENSE file at https://themost.io/license
  */
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { DataServiceQueryParams } from '@themost/client';
 import {AngularDataContext} from './client';
 
 @Component({

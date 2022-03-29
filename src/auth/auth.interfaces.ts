@@ -1,3 +1,4 @@
+// MOST Web Framework Codename Zero Gravity Copyright (c) 2017-2022, THEMOST LP All rights reserved
 import { InjectionToken } from '@angular/core';
 
 export const AUTH_CONFIG = new InjectionToken<AuthConfiguration>('auth.config');

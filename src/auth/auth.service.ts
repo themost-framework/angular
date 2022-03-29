@@ -1,3 +1,4 @@
+// MOST Web Framework Codename Zero Gravity Copyright (c) 2017-2022, THEMOST LP All rights reserved
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { ActivatedUserService } from './activated-user.service';
 import { Router } from '@angular/router';
