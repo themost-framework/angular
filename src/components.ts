@@ -7,6 +7,7 @@
  * found in the LICENSE file at https://themost.io/license
  */
 import {Component, Input, OnInit, Output} from '@angular/core';
+import { DataServiceQueryParams } from '@themost/client';
 import {AngularDataContext} from './client';
 
 @Component({
@@ -28,11 +29,17 @@ export class DataComponent implements OnInit {
     @Input() url: string;
     @Output() value: any;
 
+    public total: number;
+
     constructor(protected context: AngularDataContext) {
         //
     }
 
     ngOnInit() {
+        this.fetch();
+    }
+
+    fetch(): any {
         if (typeof this.model === 'undefined' || this.model === null) {
             return;
         }
@@ -67,7 +74,8 @@ export class DataComponent implements OnInit {
 
         if (this.count) {
             return q.getList().then((result) => {
-                this.value = result;
+                this.value = result.value;
+                this.total = result.total;
             }).catch((err) => {
                 //
             });
@@ -86,7 +94,6 @@ export class DataComponent implements OnInit {
         }).catch((err) => {
             //
         });
-
     }
 
 }
