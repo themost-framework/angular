@@ -36,7 +36,7 @@ jobs:
         run: npx @themost/peers
       - name: build library
         working-directory: build
-        run: npm run ng build angular
+        run: npm run ng build angular -- --prod
       - name: publish library
         working-directory: build/dist/angular
         run: npm publish --access=public

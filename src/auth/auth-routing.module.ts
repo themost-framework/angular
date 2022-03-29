@@ -20,8 +20,10 @@ const routes: Routes = [
   }
 ];
 
+export const authRouterModule = RouterModule.forChild(routes);
+
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [authRouterModule],
   exports: [RouterModule]
 })
 export class AuthRoutingModule { }
