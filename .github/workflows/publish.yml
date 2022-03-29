@@ -3,7 +3,8 @@ name: publish latest
 on:
   release:
     types: [released]
-
+env:
+  NG_CLI_ANALYTICS: false
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
@@ -11,13 +12,16 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
           registry-url: https://registry.npmjs.org/
       - name: create angular cli project
-        run: npx @angular/cli@6.2.9 new build --skip-tests --minimal --routing --skip-git --strict false --style scss
+        run: npx @angular/cli@11 new build --skip-tests --minimal --routing --skip-git --strict false --style scss
+      - name: set analytics off
+        working-directory: build
+        run: npm run ng analytics off -- --global
       - name: create angular library
         working-directory: build
-        run: npm run ng -- generate library angular --create-application=false --skip-git --skip-tests --inline-style
+        run: npm run ng -- generate library angular --interactive false
       - name: remove angular library
         working-directory: build
         run: rm -rf projects/angular
