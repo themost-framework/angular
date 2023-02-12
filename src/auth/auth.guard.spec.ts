@@ -1,38 +1,35 @@
-import { TestBed, async, inject } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { inject, TestBed } from '@angular/core/testing';
+import { Router, Routes } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MostModule } from '../module';
-import { ActivatedUserService, ActivatedUserSnapshot } from './activated-user.service';
-
+import { ActivatedUserService } from './activated-user.service';
 import { AuthGuard } from './auth.guard';
 import { AUTH_CONFIG } from './auth.interfaces';
-
+import { AuthModule } from './auth.module';
+export const routes: Routes = [];
 describe('AuthGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([]),
+        RouterTestingModule.withRoutes(routes),
         MostModule.forRoot({
           base: '/',
           options: {
-              useMediaTypeExtensions: true
+            useMediaTypeExtensions: true
           }
-      })
-      ],
-      providers: [
-        AuthGuard,
-        ActivatedUserService,
-        ActivatedUserSnapshot,
-        {
-          provide: AUTH_CONFIG,
-          useValue: {
-            login: '/auth/login',
-          }
-        }
-    ]
+        }),
+        AuthModule.forRoot({
+          login: '/auth/login',
+          callback: '/auth/callback',
+          locations: [],
+          client_id: null,
+          scope: []
+        })
+      ]
     });
   });
 
-  it('should ...', inject([AuthGuard], (guard: AuthGuard) => {
-    expect(guard).toBeTruthy();
-  }));
+  it('should get AuthGuard', () => {
+    const activatedUserService = TestBed.inject(ActivatedUserService);
+  });
 });

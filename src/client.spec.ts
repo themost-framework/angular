@@ -31,7 +31,7 @@ describe('AngularDataContext', () => {
         }, {
             responseType: 'json'
         }).subscribe( (res: HttpResponse<any>) => {
-            const token = res.body;
+            const token: any = res;
             // get metadata
             context.setBearerAuthorization(token.access_token);
             const metadata = context.getMetadata();
