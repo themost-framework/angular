@@ -13,7 +13,7 @@ describe('ActivatedUserService', () => {
         }
     })
     ],
-    providers: [ActivatedUserService, ActivatedUserSnapshot]
+    providers: [ActivatedUserService]
   }));
 
   it('should be created', () => {
@@ -34,7 +34,6 @@ describe('ActivatedUserService', () => {
     activatedUserService.set({
       name: 'alexis.rees@exapmle.com'
     });
-    const activatedUserSnapshot: ActivatedUserSnapshot = TestBed.get(ActivatedUserSnapshot);
-    expect(activatedUserSnapshot.user).toBeTruthy();
+    expect(activatedUserService.snapshot.user).toBeTruthy();
   });
 });
