@@ -3,7 +3,6 @@ import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MostModule } from '../module';
 import { ActivatedUserService } from './activated-user.service';
-import { AuthGuard } from './auth.guard';
 import { AUTH_CONFIG } from './auth.interfaces';
 import { AuthModule } from './auth.module';
 export const routes: Routes = [];

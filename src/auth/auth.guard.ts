@@ -1,6 +1,6 @@
 // MOST Web Framework Codename Zero Gravity Copyright (c) 2017-2022, THEMOST LP All rights reserved
 import { Inject, Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppLocation, AppLocationMask, AppLocationPattern } from './auth.interfaces';
 import { ActivatedUserService } from './activated-user.service';
@@ -47,7 +47,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   private _canActivate(route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot): boolean {
       const activatedLocation = this.canActivateLocation(state.url, this.activatedUser.snapshot.user);
       let result = false;
       if (activatedLocation != null) {
@@ -60,13 +60,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return result;
     }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this._canActivate(next, state);
   }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this._canActivate(childRoute, state);
   }
 }
