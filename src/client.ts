@@ -6,7 +6,7 @@ import {ClientDataService, ClientDataContext, Args, DataServiceExecuteOptions,
 
 export interface ClientDataContextConfig {
     base: string;
-    options: ClientDataContextOptions;
+    options?: ClientDataContextOptions;
 }
 
 export const DATA_CONTEXT_CONFIG = new InjectionToken<ClientDataContextConfig>('data.config');

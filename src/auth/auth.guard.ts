@@ -27,6 +27,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   public canActivateLocation(path: string, user: any): AppLocation {
     let accounts = [];
+    if (this.locations && this.locations.length === 0) {
+      const mask = 1;
+      return {
+        path,
+        mask
+      }
+    }
     if (user && user.groups) {
       accounts = user.groups.map((x: any) => {
         return x.name;

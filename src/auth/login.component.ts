@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'user-login',
   template: `
   <div></div>
   `

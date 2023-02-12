@@ -29,54 +29,62 @@ Angular | @themost/angular |
 
 ### Usage
 
-Provide `DATA_CONTEXT_CONFIG` and set [`@themost-framework`](https://github.com/themost-framework) api server URI. Include `AngularDataContext` in application providers.
+Import `MostModule.forRoot()` and configure `AngularDataContext`:
 
 app.module.ts
     
     import { NgModule } from '@angular/core';
-    import { HttpClientModule } from '@angular/common/http';
     import { BrowserModule } from '@angular/platform-browser';
+    import { AuthModule, MostModule } from '@themost/angular';
     import { AppComponent } from './app.component';
-    import {DATA_CONTEXT_CONFIG, AngularDataContext } from '@themost/angular';
+
     @NgModule({
-        imports: [
-            BrowserModule,
-            HttpClientModule
-        ],
-        providers: [
-            {
-                provide: DATA_CONTEXT_CONFIG, useValue: {
-                    base: 'http://localhost:3000/'
-                }
-            },
-            AngularDataContext
-        ],
-        declarations: [AppComponent],
-        bootstrap: [AppComponent],
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        ...
+        MostModule.forRoot({
+            base: '/api/'
+        }),
+        AuthModule.forRoot({
+            client_id: '9165351833584149',
+            scope: [
+                'profile'
+            ],
+            locations: [],
+            login: '/auth/login',
+            callback: '/client/callback'
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
     })
     export class AppModule { }
 
-app.component.ts
+index.component.ts
 
-    import { Component } from '@angular/core';
-    import {AngularDataContext} from "@themost/angular";
+    import { Component, OnInit } from '@angular/core';
+    import { AngularDataContext } from '@themost/angular';
+    import { from } from 'rxjs';
+
     @Component({
-        selector: 'test-app',
-        templateUrl: 'app.component.html'
+        selector: 'app-index',
+        templateUrl: './index.component.html',
+        styleUrls: ['./index.component.scss']
     })
-    export class AppComponent {
-        public laptops:any[];
-        constructor(private context:AngularDataContext) {
-            this.context.setBasicAuthorization('alexis.rees@example.com','user');
-        }
-    
-        ngOnInit() {
-                .where('category').equal('Laptops')
-                .orderBy('price')
-                .take(5)
-                .getItems().then((result)=> {
-                this.laptops = result;
-            });
+    export class IndexComponent implements OnInit {
+        items$: any;
+
+        constructor(private context: AngularDataContext) { }
+
+        ngOnInit(): void {
+            this.items$ = from(this.context.model('Products')
+                        .where((x:any) => x.category === 'Laptops')
+                        .orderBy((x:any) => x.rpice)
+                        .take(5)
+                        .getItems());
         }
     }
     
