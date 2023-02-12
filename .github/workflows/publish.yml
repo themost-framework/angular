@@ -28,15 +28,12 @@ jobs:
       - name: clone repository
         working-directory: build
         run: git clone https://github.com/themost-framework/angular.git projects/angular
-      - name: install dependencies
-        working-directory: build/projects/angular
-        run: npm ci
       - name: install peer dependencies
         working-directory: build/projects/angular
         run: npx @themost/peers
       - name: build library
         working-directory: build
-        run: npm run ng build angular -- --prod
+        run: npm run ng build angular
       - name: publish library
         working-directory: build/dist/angular
         run: npm publish --access=public
