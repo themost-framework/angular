@@ -29,7 +29,7 @@ Angular | @themost/angular |
 
 ### Usage
 
-Import `MostModule.forRoot()` and configure `AngularDataContext`:
+Import `MostModule` by using `MostModule.forRoot()` and configure `AngularDataContext`:
 
 app.module.ts
     
@@ -82,7 +82,7 @@ index.component.ts
         ngOnInit(): void {
             this.items$ = from(this.context.model('Products')
                         .where((x:any) => x.category === 'Laptops')
-                        .orderBy((x:any) => x.rpice)
+                        .orderBy((x:any) => x.price)
                         .take(5)
                         .getItems());
         }
