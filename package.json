@@ -1,20 +1,20 @@
 {
   "name": "@themost/angular",
-  "version": "11.1.0",
+  "version": "12.1.0",
   "description": "MOST Web Framework client module for angular",
   "main": "./bundles/themost-angular.umd.js",
+  "scripts": {
+  },
   "peerDependencies": {
-    "@angular/common": "^11.2.14",
-    "@angular/core": "^11.2.14",
-    "@angular/platform-browser": "^11.2.14",
-    "@angular/platform-browser-dynamic": "^11.2.14",
+    "@angular/common": "^12",
+    "@angular/core": "^12",
+    "@angular/platform-browser": "^12",
+    "@angular/platform-browser-dynamic": "^12",
+    "@themost/client": "^2.9.0",
+    "@themost/xml": "^2.5.2",
     "core-js": "^3.21.1",
     "rxjs": "^6.6.0",
-    "zone.js": "^0.11.3",
-    "@themost/client": "^2.5.6",
-    "@themost/xml": "^2.5.2"
-  },
-  "dependencies": {
+    "zone.js": "^0.11.4"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,7 @@
   "bugs": {
     "url": "https://github.com/themost-framework/angular/issues"
   },
-  "homepage": "https://github.com/themost-framework/angular#readme"
+  "homepage": "https://github.com/themost-framework/angular#readme",
+  "devDependencies": {
+  }
 }
