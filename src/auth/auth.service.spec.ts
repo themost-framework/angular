@@ -1,36 +1,35 @@
-import { TestBed } from '@angular/core/testing';
+import { inject, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { MostModule } from '../module';
 import { ActivatedUserService, ActivatedUserSnapshot } from './activated-user.service';
 import { AUTH_CONFIG } from './auth.interfaces';
+import { AuthModule } from './auth.module';
 import { AuthService } from './auth.service';
 
-describe('AuthService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [
-      RouterModule.forRoot([]),
-      MostModule.forRoot({
-          base: '/',
-          options: {
-              useMediaTypeExtensions: true
-          }
-      })
-    ],
-    providers: [
-      AuthService,
-      ActivatedUserService,
-      ActivatedUserSnapshot,
-      {
-        provide: AUTH_CONFIG,
-        useValue: {
+describe('AuthService', async() => {
+  beforeEach(waitForAsync(() => {
+    return TestBed.configureTestingModule({
+      imports: [
+        RouterModule.forRoot([]),
+        MostModule.forRoot({
+            base: '/',
+            options: {
+                useMediaTypeExtensions: true
+            }
+        }),
+        AuthModule.forRoot({
           login: '/auth/login',
-        }
-      }
-    ]
+          client_id: '',
+          scope: ['profile'],
+          callback: '/auth/callback',
+        })
+      ],
+      providers: [
+      ]
+    }).compileComponents();
   }));
 
-  it('should be created', () => {
-    const service: AuthService = TestBed.get(AuthService);
+  it('should get AuthService', inject([AuthService], async (service: AuthService) => {
     expect(service).toBeTruthy();
-  });
+  }));
 });

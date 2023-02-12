@@ -19,44 +19,16 @@ Choose the version corresponding to your Angular version:
 
 Angular | @themost/angular |
 --- | --- |
+12 | 12.x+
 11 | 11.x+
 6  | 6.x+
 5  | 2.x+
 2 to 4 | 2.x+
 
-## Changelog
-
-### 6.2.2 - 2019-04-15
-
-#### Changed
-
-- Stict date formats (e.g. 2019-01-20) are always treated as strings and are being excluded while parsing JSON HTTP responses.
-
-### 6.2.1 - 2019-02-15
-
-#### Changed
-- @themost/angular/client module has been deprecated. 
-Exported members of @themost/angular/client are now explicitly exported from @themost/angular.
-e.g. replace 
-
-import { DATA_CONTEXT_CONFIG } from '@themost/angular/client'; 
-    
-with 
-
-import { DATA_CONTEXT_CONFIG } from '@themost/angular';
-
-- @themost/angular/module module has been deprecated. 
-Exported members of @themost/angular/module are now explicitly exported from @themost/angular.
-e.g. replace 
-
-import { MostModule } from '@themost/angular/module'; 
-
-with 
-
-import { MostModule } from '@themost/angular';
-    
 
 ### Usage
+
+Provide `DATA_CONTEXT_CONFIG` and set [`@themost-framework`](https://github.com/themost-framework) api server URI. Include `AngularDataContext` in application providers.
 
 app.module.ts
     
@@ -73,10 +45,7 @@ app.module.ts
         providers: [
             {
                 provide: DATA_CONTEXT_CONFIG, useValue: {
-                    base: 'http://localhost:3000/',
-                    options: {
-                        useMediaTypeExtensions: false
-                    }
+                    base: 'http://localhost:3000/'
                 }
             },
             AngularDataContext

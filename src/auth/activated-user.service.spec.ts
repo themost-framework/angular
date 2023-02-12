@@ -20,4 +20,21 @@ describe('ActivatedUserService', () => {
     const service: ActivatedUserService = TestBed.get(ActivatedUserService);
     expect(service).toBeTruthy();
   });
+
+  it('should set user', () => {
+    const service: ActivatedUserService = TestBed.get(ActivatedUserService);
+    service.set({
+      name: 'alexis.rees@exapmle.com'
+    });
+    expect(service.snapshot.user).toBeTruthy();
+  });
+
+  it('should get user snapshot', () => {
+    const activatedUserService: ActivatedUserService = TestBed.get(ActivatedUserService);
+    activatedUserService.set({
+      name: 'alexis.rees@exapmle.com'
+    });
+    const activatedUserSnapshot: ActivatedUserSnapshot = TestBed.get(ActivatedUserSnapshot);
+    expect(activatedUserSnapshot.user).toBeTruthy();
+  });
 });
