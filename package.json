@@ -2,7 +2,6 @@
   "name": "@themost/angular",
   "version": "13.1.0",
   "description": "MOST Web Framework client module for angular",
-  "main": "./bundles/themost-angular.umd.js",
   "scripts": {
   },
   "peerDependencies": {
