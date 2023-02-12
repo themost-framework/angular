@@ -9,7 +9,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { CallbackComponent } from './callback.component';
 import { LoginComponent } from './login.component';
 import { LogoutComponent } from './logout.component';
-import { ActivatedUserService, ActivatedUserSnapshot } from './activated-user.service';
+import { ActivatedUserService } from './activated-user.service';
 import { MostModule } from '../module';
 
 
@@ -34,10 +34,9 @@ export class AuthModule {
           provide: AUTH_CONFIG,
           useValue: config
       },
-        AuthGuard,
-        AuthService,
-        ActivatedUserSnapshot,
         ActivatedUserService,
+        AuthGuard,
+        AuthService
       ]
     };
   }

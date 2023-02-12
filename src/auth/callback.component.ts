@@ -14,7 +14,7 @@ class User {
  }
 
 @Component({
-  selector: 'app-callback',
+  selector: 'login-callback',
   template: `
   <div></div>
   `
@@ -45,7 +45,6 @@ export class CallbackComponent implements OnInit, OnDestroy {
           }
         });
         this.activatedUser.set(authorizedUser);
-        this.activatedUser.user.next(authorizedUser);
         return this.router.navigate([ '/' ]);
       });
     });

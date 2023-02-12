@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { AngularDataContext } from '../client';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
 export class ActivatedUserSnapshot {
   private static readonly StorageKey = 'ActivatedUserSnapshot.activatedUser';
   constructor(private context: AngularDataContext) {
@@ -32,10 +31,12 @@ export class ActivatedUserSnapshot {
 @Injectable()
 export class ActivatedUserService {
 
-  public user: BehaviorSubject<any> = new BehaviorSubject(this.activatedUser);
-
-    constructor(private context: AngularDataContext, public snapshot: ActivatedUserSnapshot) {
+  public user: BehaviorSubject<any>;
+  public snapshot: ActivatedUserSnapshot;
+  
+    constructor(private context: AngularDataContext) {
       this.snapshot = new ActivatedUserSnapshot(context);
+      this.user = new BehaviorSubject(this.activatedUser);
     }
 
     private get activatedUser() {
