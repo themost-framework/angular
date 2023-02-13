@@ -1,19 +1,19 @@
 {
   "name": "@themost/angular",
-  "version": "14.1.0",
+  "version": "15.1.0",
   "description": "MOST Web Framework client module for angular",
   "scripts": {
   },
   "peerDependencies": {
-    "@angular/common": "^14",
-    "@angular/core": "^14",
-    "@angular/platform-browser": "^14",
-    "@angular/platform-browser-dynamic": "^14",
+    "@angular/common": "^15",
+    "@angular/core": "^15",
+    "@angular/platform-browser": "^15",
+    "@angular/platform-browser-dynamic": "^15",
     "@themost/client": "^2",
     "@themost/xml": "^2",
     "core-js": "^3.21.1",
-    "rxjs": "~7.5.0",
-    "zone.js": "^0.11.4"
+    "rxjs": "~7.8.0",
+    "zone.js": "^0.12.0"
   },
   "repository": {
     "type": "git",
