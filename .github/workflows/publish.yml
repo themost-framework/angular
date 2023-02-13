@@ -15,7 +15,7 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - name: create angular cli project
-        run: npx @angular/cli@14 new build --skip-tests --minimal --routing --skip-git --strict false --style scss
+        run: npx @angular/cli@15 new build --skip-tests --minimal --routing --skip-git --strict false --style scss
       - name: set analytics off
         working-directory: build
         run: npm run ng analytics off -- --global
