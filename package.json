@@ -1,9 +1,8 @@
 {
   "name": "@themost/angular",
-  "version": "15.1.0",
+  "version": "15.1.1",
   "description": "MOST Web Framework client module for angular",
-  "scripts": {
-  },
+  "scripts": {},
   "peerDependencies": {
     "@angular/common": "^15",
     "@angular/core": "^15",
@@ -25,6 +24,5 @@
     "url": "https://github.com/themost-framework/angular/issues"
   },
   "homepage": "https://github.com/themost-framework/angular#readme",
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
