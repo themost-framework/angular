@@ -1,9 +1,8 @@
 {
   "name": "@themost/angular",
-  "version": "15.1.0",
+  "version": "15.1.1",
   "description": "MOST Web Framework client module for angular",
-  "scripts": {
-  },
+  "scripts": {},
   "peerDependencies": {
     "@angular/common": "^15",
     "@angular/core": "^15",
@@ -11,7 +10,7 @@
     "@angular/platform-browser-dynamic": "^15",
     "@themost/client": "^2",
     "@themost/xml": "^2",
-    "core-js": "^3.21.1",
+    "core-js": "^3",
     "rxjs": "~7.8.0",
     "zone.js": "^0.12.0"
   },
@@ -25,6 +24,5 @@
     "url": "https://github.com/themost-framework/angular/issues"
   },
   "homepage": "https://github.com/themost-framework/angular#readme",
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
