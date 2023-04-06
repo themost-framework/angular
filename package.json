@@ -11,7 +11,7 @@
     "@angular/platform-browser-dynamic": "^15",
     "@themost/client": "^2",
     "@themost/xml": "^2",
-    "core-js": "^3.21.1",
+    "core-js": "^3",
     "rxjs": "~7.8.0",
     "zone.js": "^0.12.0"
   },
