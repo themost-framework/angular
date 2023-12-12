@@ -24,7 +24,7 @@ export class AngularDataContext extends ClientDataContext {
  * @param key
  * @param value
  */
-function jsonReviver(key, value) {
+function jsonReviver(key: string, value: any) {
     if (TextUtils.isDate(value)) {
         return new Date(value);
     }
@@ -91,7 +91,7 @@ export class AngularDataService extends ClientDataService {
         // set URL parameter
         const finalURL = self.getBase() + options.url.replace(/^\//i, '');
         let finalParams = new HttpParams();
-        let finalBody;
+        let finalBody: any;
         if (/^GET$/i.test(options.method) && options.data) {
             Object.getOwnPropertyNames(options.data).forEach((key) => {
                 finalParams = finalParams.append(key, options.data[key]);
