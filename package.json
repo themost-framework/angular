@@ -1,6 +1,6 @@
 {
   "name": "@themost/angular",
-  "version": "15.1.1",
+  "version": "17.1.1",
   "description": "MOST Web Framework client module for angular",
   "scripts": {
     "build": "ng-packagr -p ng-package.json -c tsconfig.lib.prod.json"
