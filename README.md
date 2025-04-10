@@ -19,6 +19,9 @@ Choose the version corresponding to your Angular version:
 
 Angular | @themost/angular |
 --- | --- |
+19 | 19.x+
+18 | 19.x+
+17 | 17.x+
 15 | 15.x+
 14 | 14.x+
 13 | 13.x+

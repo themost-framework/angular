@@ -2,14 +2,16 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {DataComponent} from './components';
 import {AngularDataContext, ClientDataContextConfig, DATA_CONTEXT_CONFIG} from './client';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
     imports: [
-        HttpClientModule
     ],
     declarations: [
         DataComponent
+    ],
+    providers: [
+        provideHttpClient()
     ],
     exports: [
         DataComponent

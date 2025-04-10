@@ -15,6 +15,7 @@ class User {
 
 @Component({
   selector: 'login-callback',
+  standalone: false,
   template: `
   <div></div>
   `

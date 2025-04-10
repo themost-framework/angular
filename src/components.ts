@@ -11,9 +11,9 @@ import {AngularDataContext} from './client';
 
 @Component({
     selector: 'most-data',
+    standalone: false,
     template: '<div></div>'
 })
-
 export class DataComponent implements OnInit {
 
     @Input() filter: string;
