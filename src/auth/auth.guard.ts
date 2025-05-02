@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     });
   }
 
-  public canActivateLocation(path: string, user: any): AppLocation {
+  public canActivateLocation(path: string, user: any): AppLocation | undefined {
     let accounts: string[] = [];
     if (this.locations && this.locations.length === 0) {
       const mask = 1;
@@ -45,7 +45,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // add wilcard
     accounts.push('*');
     return this.locations.find((location: AppLocationPattern) => {
-      return location.pattern.test(path)
+      return location.pattern?.test(path)
         && (accounts.indexOf(location.account) >= 0)
         // tslint:disable-next-line: no-bitwise
         && (location.mask === 0 || ((location.mask & 1) === 1))

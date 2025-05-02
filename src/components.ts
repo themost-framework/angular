@@ -16,17 +16,17 @@ import {AngularDataContext} from './client';
 })
 export class DataComponent implements OnInit {
 
-    @Input() filter: string;
-    @Input() model: string;
-    @Input() select: string;
-    @Input() group: string;
-    @Input() order: string;
-    @Input() top: number;
-    @Input() count: boolean;
-    @Input() skip: number;
-    @Input() expand: string;
-    @Input() url: string;
-    @Output() value: any;
+    @Input() filter?: string;
+    @Input() model?: string;
+    @Input() select?: string;
+    @Input() group?: string;
+    @Input() order?: string;
+    @Input() top?: number;
+    @Input() count?: boolean;
+    @Input() skip?: number;
+    @Input() expand?: string;
+    @Input() url?: string;
+    @Output() value?: any;
 
     public total: number;
 
