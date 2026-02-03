@@ -9,7 +9,7 @@ const {getApplication, serveApplication, getServerAddress} = require('@themost/t
 const { URL } = require('url');
 function serveKarmaTestApiServer(proxies) {
     const app = getApplication();
-    return serveApplication(app).then( function(liveServer) {
+    return serveApplication(app, 28080).then( function(liveServer) {
         const serverAddress = getServerAddress(liveServer);
         Object.assign(proxies, {
             '/api/': new URL('/api/', serverAddress).toString(),

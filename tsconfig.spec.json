@@ -1,15 +1,15 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/spec",
+    "baseUrl": ".",
+    "outDir": "./out-tsc/spec",
     "sourceMap": true,
     "types": [
       "jasmine",
       "node"
     ],
     "paths": {
-      "@themost/client": [ "../client/src/index" ],
-      "@themost/client/*": [ "../client/src/*" ]
+      "@themost/angular": [ "src/public_api" ]
     }
   },
   "files": [
