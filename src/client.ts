@@ -37,7 +37,7 @@ export class AngularDataService extends ClientDataService {
         super(base || '/', options);
     }
 
-    getMetadata(): Promise<EdmSchema> {
+    override getMetadata(): Promise<EdmSchema> {
         const headers = { ...this.getHeaders(), ...{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ export class AngularDataService extends ClientDataService {
         });
     }
 
-    execute(options: DataServiceExecuteOptions): Promise<any> {
+    override execute(options: DataServiceExecuteOptions): Promise<any> {
         const self = this;
         // options defaults
         options.method = options.method || 'GET';

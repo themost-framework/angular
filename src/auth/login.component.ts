@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
   `
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private subscription?: Subscription;
 
   constructor(private authService: AuthService) { }
   ngOnDestroy(): void {

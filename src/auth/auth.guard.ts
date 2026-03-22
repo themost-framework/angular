@@ -46,6 +46,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     accounts.push('*');
     return this.locations.find((location: AppLocationPattern) => {
       return location.pattern?.test(path)
+        && typeof location.account === 'string'
         && (accounts.indexOf(location.account) >= 0)
         // tslint:disable-next-line: no-bitwise
         && (location.mask === 0 || ((location.mask & 1) === 1))

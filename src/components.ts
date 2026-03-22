@@ -28,7 +28,7 @@ export class DataComponent implements OnInit {
     @Input() url?: string;
     @Output() value?: any;
 
-    public total: number;
+    public total?: number;
 
     constructor(protected context: AngularDataContext) {
         //
@@ -61,10 +61,10 @@ export class DataComponent implements OnInit {
         if (typeof this.expand === 'string' && this.expand.length > 0) {
             q.setParam('$expand', this.expand);
         }
-        if (this.skip > 0) {
+        if (typeof this.skip === 'number' && this.skip > 0) {
             q.setParam('$skip', this.skip);
         }
-        if (this.top > 0) {
+        if (typeof this.top === 'number' && this.top > 0) {
             q.setParam('$top', this.top);
         }
         if (this.count) {

@@ -21,7 +21,7 @@ class User {
   `
 })
 export class CallbackComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private subscription?: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
     private context: AngularDataContext,
@@ -34,7 +34,7 @@ export class CallbackComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.activatedRoute.queryParams.subscribe((queryParams) => {
+    this.subscription = this.activatedRoute.queryParams.subscribe((queryParams: { access_token?: string }) => {
       if (queryParams.access_token) {
         this.context.setBearerAuthorization(queryParams.access_token);
       }

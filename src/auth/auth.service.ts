@@ -24,13 +24,15 @@ export class AuthService {
     window.location.href = `${this.configuration.login}?client_id=${client_id}&scope=${scope}&redirect_uri=${redirect_uri}`;
   }
 
-  logout() {
+  logout(): Promise<boolean> {
     this.activatedUser.set({
       name: 'anonymous'
     });
+    // @ts-ignore
     this.context.setBearerAuthorization(null);
     if (this.configuration.logout) {
       window.location.href = this.configuration.logout;
+      return Promise.resolve(true);
     } else {
       return this.router.navigate(['/']);
     }
