@@ -6,7 +6,7 @@ export class TestConfigurationService {
     constructor(private _injector: Injector) {
         //
     }
-    public load() {
+    public load(): Promise<void> {
         return new Promise((resolve) => {
             const dataContextConfig = this._injector.get(DATA_CONTEXT_CONFIG);
             dataContextConfig.base = '/api/';
