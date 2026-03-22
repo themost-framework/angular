@@ -4,6 +4,8 @@
     "baseUrl": ".",
     "outDir": "./out-tsc/spec",
     "sourceMap": true,
+    "target": "ES6",
+    "module": "commonjs",
     "types": [
       "jasmine",
       "node"
