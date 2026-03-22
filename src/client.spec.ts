@@ -1,12 +1,12 @@
-import {TestBed, async, inject} from '@angular/core/testing';
+import {TestBed, waitForAsync, inject} from '@angular/core/testing';
 import {MostModule, AngularDataContext} from './public_api';
-import {HttpClient, HttpClientModule, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import 'rxjs/operators';
 describe('AngularDataContext', () => {
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         return TestBed.configureTestingModule({
             imports: [
-                HttpClientModule,
+                HttpClient,
                 MostModule.forRoot({
                     base: 'http://localhost:8081/api/',
                     options: {

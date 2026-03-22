@@ -49,26 +49,29 @@ export class AngularDataService extends ClientDataService {
                 reportProgress: false,
                 responseType: 'text',
                 withCredentials: true
-            }).subscribe((res) => {
-                if (res.status === 204) {
-                    return resolve(null);
-                } else {
-                    // safely handle empty body
-                    if ((res.body == null) || (typeof res.body === 'string' && res.body.length === 0)) {
+            }).subscribe({
+                next: (res: any) => {
+                    if (res.status === 204) {
                         return resolve(null);
+                    } else {
+                        // safely handle empty body
+                        if ((res.body == null) || (typeof res.body === 'string' && res.body.length === 0)) {
+                            return resolve(null);
+                        }
+                        return resolve(EdmSchema.loadXML(res.body));
                     }
-                    return resolve(EdmSchema.loadXML(res.body));
-                }
-            }, (err) => {
-                if (err.error && typeof err.error === 'string') {
-                    // try parse error
-                    try {
-                        err.error = JSON.parse(err.error);
-                    } catch (parserError) {
-                        //
+                },
+                error: (err: any) => {
+                    if (err.error && typeof err.error === 'string') {
+                        // try parse error
+                        try {
+                            err.error = JSON.parse(err.error);
+                        } catch (parserError) {
+                            //
+                        }
                     }
+                    return reject(err);
                 }
-                return reject(err);
             });
         });
     }
@@ -110,7 +113,8 @@ export class AngularDataService extends ClientDataService {
                 reportProgress: false,
                 responseType: 'text',
                 withCredentials: true
-        }).subscribe((res) => {
+        }).subscribe({
+            next: (res: any) => {
                 if (res.status === 204) {
                     return resolve(null);
                 } else {
@@ -121,7 +125,7 @@ export class AngularDataService extends ClientDataService {
                     const finalRes = JSON.parse(res.body, reviver);
                     return resolve(finalRes);
                 }
-            }, (err) => {
+            }, error: (err: any) => {
                 if (err.error && typeof err.error === 'string') {
                     // try parse error
                     try {
@@ -131,7 +135,7 @@ export class AngularDataService extends ClientDataService {
                     }
                 }
                 return reject(err);
-            });
+            }});
         });
     }
 }
